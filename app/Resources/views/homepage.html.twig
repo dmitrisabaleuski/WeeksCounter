@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block head %}
+    {{ parent() }}
+{% endblock %}
+{% block body %}
+    {% block title %}
+        {% if is_granted('ROLE_ADMIN') %}
+            <a id="admin_panel" href="/admin">Administrator Panel</a>
+        {% endif %}
+        {{ parent() }}
+
+        {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+            <ul class="user_logout">
+                <li><a href="/logout">Sign Out</a></li>
+            </ul>
+            <div class="logining-info">
+                <p class="user-name">Hello <span>{{ app.user.Username }}</span>!</p>
+                <p class="user-accaunt">Please go to your <a href="/account">profile</a> for calculate weeks!</p>
+            </div>
+        {% else %}
+            <ul class="main_user_login">
+                <li><a href="/login">Sign In</a></li>
+                <li>or</li>
+                <li><a href="/register">get registration</a></li>
+            </ul>
+        {% endif %}
+    {% endblock %}
+    {% block footer %}
+    {% endblock %}
+{% endblock %}
+

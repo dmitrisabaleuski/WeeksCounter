@@ -1,0 +1,29 @@
+<html>
+{% block head %}
+    <head>
+        <link href="{{ asset('css/style.css') }}" rel="stylesheet"/>
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+
+        {##### FONTS #####}
+        <link href="https://fonts.googleapis.com/css?family=Baloo+Thambi" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Permanent+Marker" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Merienda" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Concert+One" rel="stylesheet">
+    </head>
+{% endblock %}
+
+{% block body %}
+    <body>
+    {% block title %}
+        <h1 class="title">Calculation a weeks of life!</h1>
+    {% endblock %}
+    {% block form %}
+
+    {% endblock %}
+    {% block footer %}
+        <script src="{{ asset('js/main.js') }}"></script>
+    {% endblock %}
+    </body>
+{% endblock %}
+</html>

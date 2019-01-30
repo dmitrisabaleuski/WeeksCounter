@@ -1,0 +1,55 @@
+# To get started with security, check out the documentation:
+# https://symfony.com/doc/current/security.html
+security:
+
+    # https://symfony.com/doc/current/security.html#b-configuring-how-users-are-loaded
+    providers:
+        in_memory:
+            memory: ~
+
+        our_db_provider:
+            entity:
+                class: AppBundle\Entity\Users
+                property: username
+        app_user_provider:
+            entity:
+                class: AppBundle\Entity\Users
+                property: email
+    firewalls:
+        # disables authentication for assets and the profiler, adapt it according to your needs
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+
+        main:
+            anonymous: true
+            switch_user: ~
+            pattern:    ^/
+            http_basic: ~
+            provider: our_db_provider
+            logout:
+                path: app_logout
+            guard:
+                authenticators:
+                    - AppBundle\Security\LoginFormAuthenticator
+            remember_me:
+                secret:   '%kernel.secret%'
+                lifetime: 2592000 # 30 days in seconds
+            # activate different ways to authenticate
+
+            # https://symfony.com/doc/current/security.html#a-configuring-how-your-users-will-authenticate
+            #http_basic: ~
+
+            # https://symfony.com/doc/current/security/form_login_setup.html
+            #form_login: ~
+    encoders:
+            AppBundle\Entity\Users:
+                  algorithm: bcrypt
+                  cost: 12
+    access_control:
+        - { path: ^/admin/users, roles: ROLE_ADMIN }
+        - { path: ^/admin, roles: ROLE_ADMIN }
+        - { path: ^/account/profile, roles: ROLE_USER }
+        - { path: ^/account, roles: IS_AUTHENTICATED_FULLY }
+        # - { path: ^/change-password, roles: IS_AUTHENTICATED_FULLY }
+        # - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }

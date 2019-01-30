@@ -1,0 +1,10 @@
+<p class='weeks-info'>Weeks in life: <span>{{allWeeks}}</span></p><p class='weeks-info'>Lived weeks: <span>{{ livedWeeks }}</span></p>
+{% for i in 1..allWeeks %}
+
+    {% if loop.index <= livedWeeks %}
+        {% set id = "id = squareGreen" %}
+    {% else %}
+        {% set id = '' %}
+    {% endif %}
+    <div class = 'square' {{id}}></div>
+{% endfor %}

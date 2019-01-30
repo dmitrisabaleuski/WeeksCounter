@@ -1,0 +1,221 @@
+.title {
+    text-align: center;
+    margin: 5%;
+    font-size: 5em;
+    font-family: 'Baloo Thambi', cursive;
+    color: #ff000075;
+}
+
+.admin-title {
+    
+}
+
+.main_user_login {
+    margin: 0 auto;
+    list-style-type: none;
+    margin-block-start: 0;
+    padding-inline-start: 0;
+    margin-block-end: 0;
+    text-align: center;
+    font-family: 'Permanent Marker', cursive;
+    border: 4px solid #00bbff73;
+    width: 36%;
+    padding-block-start: 3%;
+    padding-block-end: 3%;
+}
+
+.main_user_login > li > a {
+    font-size: 2em;
+    text-decoration: none;
+    opacity: 0.7;
+}
+
+.main_user_login > li > a:hover {
+    opacity: 1;
+}
+
+.back_button {
+    font-family: 'Righteous', cursive;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.back_button > a {
+    color: #0058ff;
+}
+
+.form-signin,
+.form_register {
+    margin: 0 auto;
+    list-style-type: none;
+    margin-block-start: 0;
+    padding-inline-start: 0;
+    margin-block-end: 0;
+    text-align: center;
+    font-family: 'Permanent Marker', cursive;
+    border: 4px solid #00bbff73;
+    width: 36%;
+    padding-block-start: 3%;
+    padding-block-end: 3%;
+}
+
+.form-signin > p,
+.form_register > div {
+    padding-left: 15%;
+    text-align: left;
+}
+
+.form-signin > p > input,
+.form_register > div > input {
+    width: 50%;
+    border: none;
+    cursor: pointer;
+    margin-left: 10px;
+    border: 1px solid;
+}
+
+.form-signin .login_button,
+.form_register .login_button {
+    border: 2px solid #00bbff73;
+    font-family: 'Permanent Marker', cursive;
+    font-size: 1.4em;
+    background: none;
+    cursor: pointer;
+    margin-top: 3%;
+}
+
+.form-signin .login_button:hover,
+.form-signin .login_button:active,
+.form_register .login_button:hover,
+.form_register .login_button:active {
+    background: #00bbff73;
+}
+
+.user_logout {
+    font-family: 'Oswald', sans-serif;
+    position: absolute;
+    top: 3%;
+    right: 4%;
+    list-style-type: none;
+}
+
+.user_logout a {
+    text-decoration: none;
+    font-size: 1.3em;
+    color: #ffb300a3;
+}
+
+.user_logout a:hover,
+.user_logout a:active {
+    color: red;
+}
+
+.logining-info {
+    text-align: center;
+    margin: 0 auto;
+    font-family: 'Oswald', sans-serif;
+    font-size: 2em;
+}
+
+.logining-info span {
+    color: coral;
+}
+
+.user-name {
+    color: coral;
+    font-family: 'Oswald', sans-serif;
+    font-size: 2em;
+    margin: 0 auto;
+    margin-right: 5%;
+}
+
+.user-accaunt a {
+    text-decoration: none;
+    color: green;
+    opacity: 0.7;
+}
+
+.user-accaunt a:hover,
+.user-accaunt a:active {
+    opacity: 1;
+}
+
+#form {
+    background: #00bbff33;
+    text-align: center;
+    padding: 1% 0 2% 0;
+}
+
+#form form {
+    margin-bottom: 0;
+    font-family: 'Permanent Marker', cursive;
+}
+
+.error {
+    color: red;
+}
+
+.square {
+    width: 5px;
+    height: 5px;
+    margin: 2px;
+    text-align: center;
+    border: 1px solid;
+    float: left;
+}
+
+#squareGreen {
+    background: green;
+}
+
+.account-logout {
+    position: inherit;
+    font-size: 0.5em;
+    float: right;
+}
+
+.data-save {
+    margin-bottom: 1%;
+}
+
+.calculate_botton,
+#reload {
+    border: none;
+    font-size: 1em;
+    font-family: 'Merienda', cursive;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.calculate_botton {
+    background: #00800075;
+}
+
+.reload_block {
+    text-align: center;
+}
+
+#reload {
+    background: #800000cf;
+    color: white;
+    margin: 2%;
+}
+
+#reload:hover,
+#reload:active {
+    background: #800000;
+}
+
+.calculate_botton:hover,
+.calculate_botton:active {
+    background: #008000d1;
+}
+
+.weeks-info {
+    font-family: 'Merienda', cursive;
+    font-size: 1.2em;
+}
+
+.weeks-info span {
+    font-family: 'Concert One', cursive;
+}

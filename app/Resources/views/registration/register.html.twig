@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block head %}
+    {{ parent() }}
+{% endblock %}
+{% block title %}
+    <h1 class="title">Registration</h1>
+    <p class="back_button">Please, registration or back to <a href="/">Home</a>
+    </p>
+{% endblock %}
+{% block form %}
+
+    {{ form_start(form, {'attr': {'class': 'form_register'}}) }}
+    {{ form_row(form.username) }}
+    {{ form_row(form.email) }}
+    {{ form_row(form.plainPassword.first) }}
+    {{ form_row(form.plainPassword.second) }}
+
+    <button class="login_button" type="submit">Register!</button>
+    {{ form_end(form) }}
+{% endblock %}
+{% block footer %}
+    {{ parent() }}
+{% endblock %}

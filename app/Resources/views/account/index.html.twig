@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+{% block head %}
+    {{ parent() }}
+{% endblock %}
+{% block body %}
+    {% block title %}
+        <h3 class="user-name">
+            Account <span>{{ app.user.Username }}</span>
+            <ul class="user_logout account-logout">
+                <li><a href="/logout">(Sign Out)</a></li>
+            </ul>
+        </h3>
+        <p class="back_button">Back to <a href="/">Home</a></p>
+    {% endblock %}
+    {% block form %}
+        {% if user_data is empty %}
+            {% set date = '1993-02-09' %}
+            {% set years = 85 %}
+        {% else %}
+            {% set date = user_data.birthDate %}
+            {% set years = user_data.years_count %}
+        {% endif %}
+        <div id="form">
+            <form name="birthForm" action="/account" method="POST" id="birthForm">
+                <p class="form-fields">
+                    <label for="date">Enter date of birth:</label>
+                    <input id="date" name="date" type="date" value="{{ date }}"/>
+                </p>
+                <p class="form-fields">
+                    <label for="years">Estimated number of years of life:</label>
+                    <input id="years" name="years" type="number" value="{{ years }}"/>
+                </p>
+                <div class="data-save checkbox mb-3">
+                    <label>
+                        <input name="data_save" type="checkbox" value="data_save">Save my datas
+                    </label>
+                </div>
+                <input class="calculate_botton" type="submit" value="Calculate"/>
+            </form>
+        </div>
+        <div class="reload_block">
+            <button id="reload">reload</button>
+        </div>
+        <div class="result"></div>
+    {% endblock %}
+    {% block footer %}
+        {{ parent() }}
+    {% endblock %}
+{% endblock %}
