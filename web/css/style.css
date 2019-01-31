@@ -6,8 +6,11 @@
     color: #ff000075;
 }
 
-.admin-title {
-    
+.account-title {
+    margin: 1%;
+    text-align: left;
+    font-size: 3em;
+    display: contents;
 }
 
 .main_user_login {
@@ -36,7 +39,7 @@
 
 .back_button {
     font-family: 'Righteous', cursive;
-    text-align: center;
+    float: right;
     margin: 0 auto;
 }
 
@@ -103,6 +106,7 @@
     text-decoration: none;
     font-size: 1.3em;
     color: #ffb300a3;
+    float: right;
 }
 
 .user_logout a:hover,
@@ -125,8 +129,11 @@
     color: coral;
     font-family: 'Oswald', sans-serif;
     font-size: 2em;
-    margin: 0 auto;
-    margin-right: 5%;
+    text-align: center;
+}
+
+.user-name > h3 {
+    margin: 0;
 }
 
 .user-accaunt a {
@@ -170,8 +177,7 @@
 
 .account-logout {
     position: inherit;
-    font-size: 0.5em;
-    float: right;
+    font-size: 1.1em;
 }
 
 .data-save {
@@ -218,4 +224,55 @@
 
 .weeks-info span {
     font-family: 'Concert One', cursive;
+}
+
+#admin-list {
+    border: 2px solid;
+}
+
+#admin-list,
+#admin-list ul {
+    padding: 0;
+}
+
+#admin-list li {
+    list-style-type: none;
+}
+
+#admin-list-title {
+    padding: 0 3% 0 3%;
+}
+
+#admin-list-title > ul {
+    display: inline-flex;
+    width: 100%;
+    padding: 1% 0 1% 0;
+}
+
+#admin-list-title > ul > .user-name {
+    border-right: 3px solid;
+}
+
+#admin-list-title > ul > li {
+    width: 50%;
+}
+
+#accounts-admin-list {
+    padding: 0 3% 0 3%;
+    margin-bottom: 2%;
+}
+
+#accounts-admin-list > ul > li > ul {
+    display: inline-flex;
+    width: 100%;
+}
+
+#accounts-admin-list > ul > li > ul > li {
+    width: 16%;
+    padding: 1% 5px 1% 5px;
+    border: 1px solid;
+}
+
+#felds-name > li {
+    text-align: center;
 }

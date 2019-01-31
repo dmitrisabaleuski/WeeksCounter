@@ -45,7 +45,7 @@ class Users implements UserInterface {
     /**
      * @ORM\Column(type="json")
      */
-    private $roles = [];
+    private $roles = ['ROLE_USER'];
 
     /**
      * @ORM\Column(name="is_active", type="boolean")
