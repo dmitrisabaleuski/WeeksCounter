@@ -6,19 +6,18 @@
     {% block title %}
         <h3 class="user-name">
             Account <span>{{ app.user.Username }}</span>
-            <ul class="user_logout account-logout">
-                <li><a href="/logout">(Sign Out)</a></li>
-            </ul>
+            <a class="account_logout" href="/logout">(Sign Out)</a>
         </h3>
+        <a class="account_edit" href="account/user/edit/{{app.user.id}}">Edit Account</a>
         <p class="back_button">Back to <a href="/">Home</a></p>
     {% endblock %}
     {% block form %}
-        {% if user_data is empty %}
+        {% if birth_data is empty %}
             {% set date = '1993-02-09' %}
             {% set years = 85 %}
         {% else %}
-            {% set date = user_data.birthDate %}
-            {% set years = user_data.years_count %}
+            {% set date = birth_data %}
+            {% set years = year_data %}
         {% endif %}
         <div id="form">
             <form name="birthForm" action="/account" method="POST" id="birthForm">

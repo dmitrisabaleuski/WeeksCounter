@@ -28,28 +28,31 @@
                         <li>User Name</li>
                         <li>User Email</li>
                         <li>User BirthDay</li>
+                        <li>User Live years</li>
                         <li>Role</li>
                         <li>Edit Action</li>
-                        <li>Delete Action</li>
                     </ul>
                 </li>
                 <li>
                     {% for user in users %}
                         {% if data[user.id] is defined %}
-                            {% set birthDay = data[user.id] %}
+                            {% set birthDay = data[user.id].birth %}
+                            {% set year =  data[user.id].years%}
                         {% else %}
                             {% set birthDay = '' %}
+                            {% set year = '' %}
                         {% endif %}
                         <ul id="userId-{{ user.id }}" class="admin-user-row">
                             <li>{{ user.username }}</li>
                             <li>{{ user.email }}</li>
                             <li>{{ birthDay }}</li>
+                            <li>{{ year }}</li>
                             <li>{{ user.roles.0 }}</li>
                             <li class="user-setting-button"><a href="admin/user/edit/{{ user.id }}">Edit</a></li>
-                            <li class="user-setting-button delete"><a href="admin/user/delete/{{ user.id }}">Delete</a></li>
                         </ul>
                     {% endfor %}
                 </li>
+                <li><a class="new_user" href="admin/new-user">Add new User</a></li>
             </ul>
         </li>
     </ul>

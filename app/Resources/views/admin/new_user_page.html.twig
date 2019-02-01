@@ -9,11 +9,8 @@
 {% endblock %}
 {% block body %}
     {% block title %}
-        <h1 class="account-title title">Manage Account</h1>
-        <p class="back_button">Back to <a href="/">Home</a>
-        {% if is_granted('ROLE_ADMIN') %}
-            or <a href="/admin">admin panle</a></p>
-        {% endif %}
+        <h1 class="account-title title">Manage User</h1>
+        <p class="back_button">Back to <a href="/">Home</a> or <a href="/admin">admin panle</a></p>
     {% endblock %}
     <ul id="admin-list">
         <li id="admin-list-title">
@@ -29,46 +26,43 @@
             </ul>
         </li>
         <li id="user-accounts-manager">
-            {% if data is empty %}
-                {% set birthDay = '' %}
-            {% else %}
-                {% set birthDay = data %}
-            {% endif %}
-            <form name="accountManager" action="/{{ user_role }}/user/edit/{{ user.id }}" method="POST"
-                  id="accountManager">
+            <form name="newUser" action="/admin/new-user" method="POST" id="newUser">
                 <p class="form-fields">
                     <label for="name">User name:</label>
-                    <input id="name" name="name" type="text" value="{{ user.username }}"/>
+                    <input id="name" name="name" type="text" value="New User Name"/>
                 </p>
                 <p class="form-fields">
                     <label for="email">User email:</label>
-                    <input id="email" name="email" type="text" value="{{ user.email }}"/>
+                    <input id="email" name="email" type="text" value="Enter email"/>
                 </p>
                 <p class="form-fields">
-                    <label for="birthdate">User birthday:</label>
-                    <input id="birthdate" name="birthdate" type="date" value="{{ birthDay }}"/>
+                    <label for="email">User password:</label>
+                    <input id="password" name="password" type="password" value=""/>
+                </p>
+                <p class="form-fields">
+                    <label for="email">Repeat password:</label>
+                    <input id="repeat_password" name="repeat_password" type="password" value=""/>
                 </p>
                 <p class="form-fields">
                     <label for="userRole">User role:</label>
                     <select name="userRole" id="userRole">
                         {% for role in roles_array %}
-                            {% set selected = '' %}
-                            {% if role == user.roles.0 %}
-                                {% set selected = 'selected' %}
-                            {% endif %}
-                            <option value="{{ role }}" {{ selected }}>{{ role }}</option>
+                            <option value="{{ role }}">{{ role }}</option>
                         {% endfor %}
                     </select>
                 </p>
                 <p class="setting_buttons">
-                    <input class="update_botton" type="submit" value="Update"/>
-                    {% if is_granted('ROLE_ADMIN') %}
-                        <a class="user-delete-button" href="delete/{{ user.id }}">Delete User {{ user.username }}</a>
-                    {% endif %}
+                    <input class="add_botton" type="submit" value="Add New User"/>
                 </p>
             </form>
         </li>
     </ul>
+    <div class="response">
+        {% if response is empty %}
+        {% else %}
+        {{ response }}
+        {% endif %}
+    </div>
     {% block footer %}
     {% endblock %}
 {% endblock %}

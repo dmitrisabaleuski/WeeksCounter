@@ -49,7 +49,5 @@ security:
     access_control:
         - { path: ^/admin/users, roles: ROLE_ADMIN }
         - { path: ^/admin, roles: ROLE_ADMIN }
-        - { path: ^/account/profile, roles: ROLE_USER }
+        - { path: ^/account/profile, roles: IS_AUTHENTICATED_FULLY }
         - { path: ^/account, roles: IS_AUTHENTICATED_FULLY }
-        # - { path: ^/change-password, roles: IS_AUTHENTICATED_FULLY }
-        # - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }

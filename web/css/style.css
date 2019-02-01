@@ -142,6 +142,20 @@
     opacity: 0.7;
 }
 
+.account_logout{
+    float: right;
+    color: coral;
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.7em;
+    opacity: 0.6;
+    text-decoration: none;
+}
+
+.account_logout:hover,
+.account_logout:active {
+    opacity: 1;
+}
+
 .user-accaunt a:hover,
 .user-accaunt a:active {
     opacity: 1;
@@ -303,4 +317,65 @@
 .user-setting-button a:hover,
 .user-setting-button a:active {
     opacity: 1;
+}
+
+#user-accounts-manager {
+    padding: 1% 2% 1% 2%;
+}
+
+#accountManager .form-fields label {
+    font-family: 'Baloo Thambi', cursive;
+    margin-right: 1%;
+    font-size: 2em;
+    color: #009fffbd;
+}
+
+#accountManager .form-fields input#email {
+    width: 20%;
+}
+
+#accountManager .form-fields input,
+#accountManager .form-fields select,
+#accountManager .form-fields option {
+    padding: 5px;
+    background: #00007e3d;
+    border: none;
+}
+
+#accountManager .update_botton {
+    border: none;
+    padding: 0.4% 2%;
+    background: green;
+    color: white;
+    font-size: 1em;
+    opacity: 0.5;
+    font-family: 'Baloo Thambi', cursive;
+    cursor: pointer;
+}
+
+#accountManager .update_botton:hover,
+#accountManager .update_botton:active {
+    opacity: 1;
+}
+
+.user-delete-button {
+    background: red;
+    color: white;
+    text-decoration: none;
+    padding: 0.6% 1%;
+    margin-left: 1%;
+}
+
+.setting_buttons {
+    display: flex;
+}
+
+a.new_user {
+    background: green;
+    opacity: 0.7;
+    color: white;
+    text-decoration: none;
+    padding: 1% 1%;
+    display: inline-block;
+    margin-top: 1%;
 }
