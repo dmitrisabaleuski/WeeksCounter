@@ -6,8 +6,11 @@
     color: #ff000075;
 }
 
-.admin-title {
-    
+.account-title {
+    margin: 1%;
+    text-align: left;
+    font-size: 3em;
+    display: contents;
 }
 
 .main_user_login {
@@ -36,7 +39,7 @@
 
 .back_button {
     font-family: 'Righteous', cursive;
-    text-align: center;
+    float: right;
     margin: 0 auto;
 }
 
@@ -103,6 +106,7 @@
     text-decoration: none;
     font-size: 1.3em;
     color: #ffb300a3;
+    float: right;
 }
 
 .user_logout a:hover,
@@ -125,14 +129,31 @@
     color: coral;
     font-family: 'Oswald', sans-serif;
     font-size: 2em;
-    margin: 0 auto;
-    margin-right: 5%;
+    text-align: center;
+}
+
+.user-name > h3 {
+    margin: 0;
 }
 
 .user-accaunt a {
     text-decoration: none;
     color: green;
     opacity: 0.7;
+}
+
+.account_logout{
+    float: right;
+    color: coral;
+    font-family: 'Oswald', sans-serif;
+    font-size: 0.7em;
+    opacity: 0.6;
+    text-decoration: none;
+}
+
+.account_logout:hover,
+.account_logout:active {
+    opacity: 1;
 }
 
 .user-accaunt a:hover,
@@ -170,8 +191,7 @@
 
 .account-logout {
     position: inherit;
-    font-size: 0.5em;
-    float: right;
+    font-size: 1.1em;
 }
 
 .data-save {
@@ -218,4 +238,144 @@
 
 .weeks-info span {
     font-family: 'Concert One', cursive;
+}
+
+#admin-list {
+    border: 2px solid;
+}
+
+#admin-list,
+#admin-list ul {
+    padding: 0;
+}
+
+#admin-list li {
+    list-style-type: none;
+}
+
+#admin-list-title {
+    padding: 0 3% 0 3%;
+}
+
+#admin-list-title > ul {
+    display: inline-flex;
+    width: 100%;
+    padding: 1% 0 1% 0;
+}
+
+#admin-list-title > ul > .user-name {
+    border-right: 3px solid;
+}
+
+#admin-list-title > ul > li {
+    width: 50%;
+}
+
+#accounts-admin-list {
+    padding: 0 3% 0 3%;
+    margin-bottom: 2%;
+}
+
+#accounts-admin-list > ul > li > ul {
+    display: inline-flex;
+    width: 100%;
+}
+
+#accounts-admin-list > ul > li > ul > li {
+    width: 16%;
+    padding: 1% 5px 1% 5px;
+    border: 1px solid;
+}
+
+#felds-name > li {
+    text-align: center;
+    background: #0080006e;
+    font-family: 'Baloo Thambi', cursive;
+}
+
+.user-setting-button {
+    text-align: center;
+}
+
+.user-setting-button a {
+    background: #8888e3;
+    text-decoration: none;
+    color: white;
+    padding: 1% 10%;
+    border-radius: 6px;
+    opacity: 0.5;
+}
+
+.delete > a {
+    background: red;
+}
+
+.save > a {
+
+}
+
+.user-setting-button a:hover,
+.user-setting-button a:active {
+    opacity: 1;
+}
+
+#user-accounts-manager {
+    padding: 1% 2% 1% 2%;
+}
+
+#accountManager .form-fields label {
+    font-family: 'Baloo Thambi', cursive;
+    margin-right: 1%;
+    font-size: 2em;
+    color: #009fffbd;
+}
+
+#accountManager .form-fields input#email {
+    width: 20%;
+}
+
+#accountManager .form-fields input,
+#accountManager .form-fields select,
+#accountManager .form-fields option {
+    padding: 5px;
+    background: #00007e3d;
+    border: none;
+}
+
+#accountManager .update_botton {
+    border: none;
+    padding: 0.4% 2%;
+    background: green;
+    color: white;
+    font-size: 1em;
+    opacity: 0.5;
+    font-family: 'Baloo Thambi', cursive;
+    cursor: pointer;
+}
+
+#accountManager .update_botton:hover,
+#accountManager .update_botton:active {
+    opacity: 1;
+}
+
+.user-delete-button {
+    background: red;
+    color: white;
+    text-decoration: none;
+    padding: 0.6% 1%;
+    margin-left: 1%;
+}
+
+.setting_buttons {
+    display: flex;
+}
+
+a.new_user {
+    background: green;
+    opacity: 0.7;
+    color: white;
+    text-decoration: none;
+    padding: 1% 1%;
+    display: inline-block;
+    margin-top: 1%;
 }

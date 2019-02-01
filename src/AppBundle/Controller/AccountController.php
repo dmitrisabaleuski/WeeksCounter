@@ -3,14 +3,14 @@
 namespace AppBundle\Controller;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
-use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Psr\Log\LoggerInterface;
+use AppBundle\Entity\Users;
 use AppBundle\Entity\UserData;
 
 /**
- * @IsGranted("ROLE_USER")
+ * @IsGranted("IS_AUTHENTICATED_FULLY")
  */
 class AccountController extends BaseController {
 
@@ -22,10 +22,13 @@ class AccountController extends BaseController {
         $userID = $this->getUser()->getId();
 
         $user_data = $this->checkUserData( $userID );
-        $user_data = ! empty( $user_data->feelds_data ) ? unserialize( $user_data->feelds_data ) : '';
+
+        $birth_data = $user_data['birth_data'] ? $user_data['birth_data'] : '';
+        $year_data = $user_data['year_data'] ? $user_data['year_data'] : '';
 
         return $this->render( 'account/index.html.twig', [
-            'user_data' => $user_data,
+            'birth_data' => $birth_data,
+            'year_data' => $year_data,
         ] );
     }
 
@@ -67,7 +70,8 @@ class AccountController extends BaseController {
 
         $weeks_data = $user_data_check ? $user_data_check : new UserData();
         $weeks_data->setTaxonomyUserId( $userID );
-        $weeks_data->setFeeldsData( serialize( $feelds_data ) );
+        $weeks_data->setBirthData( $birthDate );
+        $weeks_data->setYearData( $years );
 
         $em->persist( $weeks_data );
 
@@ -84,5 +88,27 @@ class AccountController extends BaseController {
                           ] );
 
         return ! empty( $user_data ) ? $user_data : null;
+    }
+
+    /**
+     * @Route("/account/user/edit/{id}", name="app_user_self_edit", methods={"GET"}, requirements={"id"="\d+"})
+     */
+
+    public function userEdit( $id ) {
+        $user = $this->getDoctrine()
+                     ->getRepository( Users::class )
+                     ->find( $id );
+
+        $data = $this->getDoctrine()
+                     ->getRepository( UserData::class )
+                     ->findOneBy( [ 'taxonomy_user_id' => $id ] );
+
+        $data = ! empty( $data ) ? $data->birth_data : '';
+
+        return $this->render( 'admin/manage_user.html.twig', [
+            'user' => $user,
+            'data' => $data,
+            'user_role' => 'account',
+        ] );
     }
 }

@@ -20,12 +20,17 @@ class UserData extends Controller
     /**
      * @ORM\Column(type="integer")
      */
-    private $taxonomy_user_id;
+    public $taxonomy_user_id;
 
     /**
      * @ORM\Column(type="string")
      */
-    public $feelds_data;
+    public $birth_data;
+    
+    /**
+     * @ORM\Column(type="string")
+     */
+    public $year_data;
 
     public function getId(): ?int
     {
@@ -47,15 +52,29 @@ class UserData extends Controller
     /**
      * @return mixed
      */
-    public function getFeeldsData() {
-        return $this->feelds_data;
+    public function getBirthData() {
+        return $this->birth_data;
     }
 
     /**
      * @param mixed $feelds_data
      */
-    public function setFeeldsData( $feelds_data ) {
-        $this->feelds_data = $feelds_data;
+    public function setBirthData( $birth_data ) {
+        $this->birth_data = $birth_data;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getYearData() {
+        return $this->year_data;
+    }
+
+    /**
+     * @param mixed $year_data
+     */
+    public function setYearData( $year_data ) {
+        $this->year_data = $year_data;
     }
 
 

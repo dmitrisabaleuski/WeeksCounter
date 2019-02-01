@@ -1,19 +1,61 @@
 {% extends 'base.html.twig' %}
 {% block head %}
-{{parent()}}
+    {{ parent() }}
+    <link href="https://fonts.googleapis.com/css?family=Baloo+Thambi" rel="stylesheet">
 {% endblock %}
 {% block body %}
     {% block title %}
-        <h1 class="admin-title title">Admin Panel!</h1>
-        <h3 class="user-name">
-            <span>{{ app.user.Username }}</span>
-            <ul class="user_logout account-logout">
-                <li><a href="/logout">(Sign Out)</a></li>
-            </ul>
-        </h3>
+        <h1 class="account-title title">Admin Panel!</h1>
         <p class="back_button">Back to <a href="/">Home</a></p>
     {% endblock %}
-
+    <ul id="admin-list">
+        <li id="admin-list-title">
+            <ul>
+                <li class="user-name">
+                    <h3>
+                        Accaunt name: <span>{{ app.user.Username }}</span>
+                    </h3>
+                </li>
+                <li class="user_logout account-logout">
+                    <a href="/logout">(Sign Out)</a>
+                </li>
+            </ul>
+        </li>
+        <li id="accounts-admin-list">
+            <ul>
+                <li>
+                    <ul id="felds-name">
+                        <li>User Name</li>
+                        <li>User Email</li>
+                        <li>User BirthDay</li>
+                        <li>User Live years</li>
+                        <li>Role</li>
+                        <li>Edit Action</li>
+                    </ul>
+                </li>
+                <li>
+                    {% for user in users %}
+                        {% if data[user.id] is defined %}
+                            {% set birthDay = data[user.id].birth %}
+                            {% set year =  data[user.id].years%}
+                        {% else %}
+                            {% set birthDay = '' %}
+                            {% set year = '' %}
+                        {% endif %}
+                        <ul id="userId-{{ user.id }}" class="admin-user-row">
+                            <li>{{ user.username }}</li>
+                            <li>{{ user.email }}</li>
+                            <li>{{ birthDay }}</li>
+                            <li>{{ year }}</li>
+                            <li>{{ user.roles.0 }}</li>
+                            <li class="user-setting-button"><a href="admin/user/edit/{{ user.id }}">Edit</a></li>
+                        </ul>
+                    {% endfor %}
+                </li>
+                <li><a class="new_user" href="admin/new-user">Add new User</a></li>
+            </ul>
+        </li>
+    </ul>
     {% block footer %}
     {% endblock %}
 {% endblock %}

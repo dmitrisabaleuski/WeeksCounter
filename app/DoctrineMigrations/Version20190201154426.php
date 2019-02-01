@@ -10,7 +10,7 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20190127193411 extends AbstractMigration
+final class Version20190201154426 extends AbstractMigration
 {
     public function getDescription() : string
     {
@@ -22,8 +22,7 @@ final class Version20190127193411 extends AbstractMigration
         // this up() migration is auto-generated, please modify it to your needs
         $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'mysql', 'Migration can only be executed safely on \'mysql\'.');
 
-        $this->addSql('DROP INDEX UNIQ_1483A5E97BA2F5EB ON users');
-        $this->addSql('ALTER TABLE users DROP api_token, DROP is_active');
+        $this->addSql('ALTER TABLE user_data CHANGE feelds_data birth_data VARCHAR(255) NOT NULL');
     }
 
     public function down(Schema $schema) : void
@@ -31,7 +30,6 @@ final class Version20190127193411 extends AbstractMigration
         // this down() migration is auto-generated, please modify it to your needs
         $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'mysql', 'Migration can only be executed safely on \'mysql\'.');
 
-        $this->addSql('ALTER TABLE users ADD api_token VARCHAR(255) NOT NULL COLLATE utf8_unicode_ci, ADD is_active TINYINT(1) NOT NULL');
-        $this->addSql('CREATE UNIQUE INDEX UNIQ_1483A5E97BA2F5EB ON users (api_token)');
+        $this->addSql('ALTER TABLE user_data CHANGE birth_data feelds_data VARCHAR(255) NOT NULL COLLATE utf8_unicode_ci');
     }
 }
