@@ -29,11 +29,49 @@ class AdminController extends Controller {
         $users_data = $this->getDoctrine()
                            ->getRepository( UserData::class )
                            ->findAll();
+        for ( $i = 0; $i < count( $users_data ); $i ++ ) {
+            $birth                                       = unserialize( $users_data[ $i ]->feelds_data );
+            $data[ $users_data[ $i ]->taxonomy_user_id ] = $birth['birthDate'];
+        }
 
         return $this->render( 'admin/admin_page.html.twig', [
-            'controller_name' => 'AdminController',
-            'users'           => $users,
-            'data'            => $users_data,
+            'users' => $users,
+            'data'  => $data,
+        ] );
+    }
+
+    /**
+     * @Route("/admin/user/delete/{id}", name="app_delete_user", methods={"DELETE"}, requirements={"id"="\d+"})
+     */
+
+    public function user_delete( $id ) {
+        $usersTable = $this->getDoctrine()->getManager();
+        $user       = $usersTable->getRepository( Users::class )->find( $id );
+        $usersTable->remove( $user );
+        $usersTable->flush();
+
+        return $this->redirectToRoute( 'admin' );
+
+    }
+
+    /**
+     * @Route("/admin/user/edit/{id}", name="app_edit_user", methods={"GET"}, requirements={"id"="\d+"})
+     */
+
+    public function userEdit( $id ) {
+        $user = $this->getDoctrine()
+                     ->getRepository( Users::class )
+                     ->find( $id );
+
+        $data = $this->getDoctrine()
+                     ->getRepository( UserData::class )
+                     ->findOneBy( [ 'taxonomy_user_id' => $id ] );
+
+        $data = !empty($data) ? unserialize($data->feelds_data)['birthDate']  : '';
+
+        return $this->render( 'admin/manage_user.html.twig', [
+            'user' => $user,
+            'data' => $data,
         ] );
     }
 

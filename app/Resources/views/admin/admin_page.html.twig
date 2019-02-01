@@ -1,6 +1,7 @@
 {% extends 'base.html.twig' %}
 {% block head %}
     {{ parent() }}
+    <link href="https://fonts.googleapis.com/css?family=Baloo+Thambi" rel="stylesheet">
 {% endblock %}
 {% block body %}
     {% block title %}
@@ -12,7 +13,7 @@
             <ul>
                 <li class="user-name">
                     <h3>
-                        Yser name: <span>{{ app.user.Username }}</span>
+                        Accaunt name: <span>{{ app.user.Username }}</span>
                     </h3>
                 </li>
                 <li class="user_logout account-logout">
@@ -34,13 +35,18 @@
                 </li>
                 <li>
                     {% for user in users %}
+                        {% if data[user.id] is defined %}
+                            {% set birthDay = data[user.id] %}
+                        {% else %}
+                            {% set birthDay = '' %}
+                        {% endif %}
                         <ul id="userId-{{ user.id }}" class="admin-user-row">
                             <li>{{ user.username }}</li>
                             <li>{{ user.email }}</li>
-                            <li></li>
-                            <li></li>
-                            <li><a href="admin/user/edit/{{ user.id }}">Edit</a></li>
-                            <li><a href="admin/user/delete/{{ user.id }}">Delete</a></li>
+                            <li>{{ birthDay }}</li>
+                            <li>{{ user.roles.0 }}</li>
+                            <li class="user-setting-button"><a href="admin/user/edit/{{ user.id }}">Edit</a></li>
+                            <li class="user-setting-button delete"><a href="admin/user/delete/{{ user.id }}">Delete</a></li>
                         </ul>
                     {% endfor %}
                 </li>

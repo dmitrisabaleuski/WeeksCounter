@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+{% block head %}
+    {{ parent() }}
+    <link href="https://fonts.googleapis.com/css?family=Baloo+Thambi" rel="stylesheet">
+{% endblock %}
+{% block body %}
+    {% block title %}
+        <h1 class="account-title title">Manage User</h1>
+        <p class="back_button">Back to <a href="/">Home</a> or <a href="/admin">admin panle</a></p>
+    {% endblock %}
+    <ul id="admin-list">
+        <li id="admin-list-title">
+            <ul>
+                <li class="user-name">
+                    <h3>
+                        Accaunt name: <span>{{ app.user.Username }}</span>
+                    </h3>
+                </li>
+                <li class="user_logout account-logout">
+                    <a href="/logout">(Sign Out)</a>
+                </li>
+            </ul>
+        </li>
+        <li id="user-accounts-manager">
+            {% if data is empty %}
+                {% set birthDay = '' %}
+            {% else %}
+                {% set birthDay = data %}
+            {% endif %}
+            <ul id="userId-{{ user.id }}" class="admin-user-row">
+                <li>{{ user.username }}</li>
+                <li>{{ user.email }}</li>
+                <li>{{ birthDay }}</li>
+                <li>{{ user.roles.0 }}</li>
+                <li class="user-setting-button save"><a href="admin/user/save/{{ user.id }}">Save</a></li>
+                <li class="user-setting-button delete"><a href="admin/user/delete/{{ user.id }}">Delete</a></li>
+            </ul>
+        </li>
+    </ul>
+    {% block footer %}
+    {% endblock %}
+{% endblock %}

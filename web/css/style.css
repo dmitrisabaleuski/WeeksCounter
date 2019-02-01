@@ -275,4 +275,32 @@
 
 #felds-name > li {
     text-align: center;
+    background: #0080006e;
+    font-family: 'Baloo Thambi', cursive;
+}
+
+.user-setting-button {
+    text-align: center;
+}
+
+.user-setting-button a {
+    background: #8888e3;
+    text-decoration: none;
+    color: white;
+    padding: 1% 10%;
+    border-radius: 6px;
+    opacity: 0.5;
+}
+
+.delete > a {
+    background: red;
+}
+
+.save > a {
+
+}
+
+.user-setting-button a:hover,
+.user-setting-button a:active {
+    opacity: 1;
 }

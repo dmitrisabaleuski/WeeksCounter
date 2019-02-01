@@ -20,7 +20,7 @@ class UserData extends Controller
     /**
      * @ORM\Column(type="integer")
      */
-    private $taxonomy_user_id;
+    public $taxonomy_user_id;
 
     /**
      * @ORM\Column(type="string")
